@@ -116,6 +116,7 @@ return {
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
+        dartls = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -141,8 +142,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "bash",
-        "help",
+        "bashq",
+        "dart",
         "html",
         "javascript",
         "json",
@@ -152,10 +153,12 @@ return {
         "python",
         "query",
         "regex",
+        "rust",
         "tsx",
         "typescript",
         "vim",
         "yaml",
+        "toml",
       },
     },
   },
@@ -168,8 +171,8 @@ return {
     opts = function(_, opts)
       -- add tsx and treesitter
       vim.list_extend(opts.ensure_installed, {
-          "tsx",
-          "typescript",
+        "tsx",
+        "typescript",
       })
     end,
   },
@@ -182,7 +185,6 @@ return {
       table.insert(opts.sections.lualine_x, "😄")
     end,
   },
-
   -- or you can return new options to override all the defaults
   {
     "nvim-lualine/lualine.nvim",
