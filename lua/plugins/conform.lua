@@ -1,12 +1,13 @@
 return {
   "hrsh7th/nvim-cmp",
-  dependencies = { "hrsh7th/cmp-emoji" },
+  dependencies = { "stevearc/conform.nvim" },
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
     local cmp = require("cmp")
     opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
-      { name = "emoji" },
-      { name = "crates" },
+      formatters_by_ft = {
+        hbs = { "prettier" },
+      },
     }))
   end,
 }

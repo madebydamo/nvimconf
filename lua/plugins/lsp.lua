@@ -2,6 +2,9 @@ return {
   "neovim/nvim-lspconfig",
   ---@class PluginLspOpts
   opts = {
+    servers = {
+      dartls = {},
+    },
     settings = {
       ["rust-analyzer"] = {
         imports = {
